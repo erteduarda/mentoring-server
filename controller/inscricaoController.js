@@ -1,4 +1,4 @@
-const { postInscricaoModal, getInscricaoModal, postSalvarRelacaoModal, postAprovacaoModal, getAprovadosModal } = require("../model/inscricaoModal")
+const { postInscricaoModal, getInscricaoModal, postSalvarRelacaoModal, postAprovacaoModal, getAprovadosModal, getAprovarModal } = require("../model/inscricaoModal")
 
 async function postInscricao(req, res) {
     try {
@@ -50,10 +50,21 @@ async function postInscricaoAprovacao(req, res) {
     }
 }
 
+async function getAprovar(req, res) {
+    try {
+        const aprovacao = await getAprovarModal(req)
+        res.send(aprovacao)
+    } catch (error) {
+        res.status(500)
+        res.send(error.message)
+    }
+}
+
 module.exports = {
     postInscricao,
     getInscricao,
     postSalvarRelacao,
     postInscricaoAprovacao,
-    getAprovados
+    getAprovados,
+    getAprovar
 }

@@ -46,9 +46,8 @@ async function getAprovadosModal(req) {
 }
 
 async function postSalvarRelacaoModal(req) {
-    const relacoes = req.body
-
-    const query = "INSERT INTO solicitacoesmentoria (MentorID, MentoradoID) VALUES (?, ?)";
+    const relacoes = req.body.relacao
+    const query = "INSERT INTO relacionamentomentoria (MentorID, MentoradoID) VALUES (?, ?)";
 
     try {
         for (const relacao of relacoes) {
@@ -80,11 +79,27 @@ async function postAprovacaoModal(req) {
     }
 }
 
+async function getAprovarModal(req) {
+    const id = req.params.id
+
+    const query = 'UPDATE inscricoes SET Status = 1 WHERE UsuarioID = ?'
+
+    try {
+        // Usando uma Promise para lidar com o resultado
+        const rows = await db.exec(query, id)
+        return rows
+    } catch (error) {
+        console.error('Erro ao executar a consulta:', error)
+        throw error;
+    }
+}
+
 
 module.exports = {
     postInscricaoModal,
     getInscricaoModal,
     postSalvarRelacaoModal,
     postAprovacaoModal,
-    getAprovadosModal
+    getAprovadosModal,
+    getAprovarModal
 }
