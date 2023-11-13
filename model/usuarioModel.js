@@ -8,7 +8,7 @@ async function getLogarUsuarioModel(req) {
     const email = req.params.email
     const senha = req.params.senha
 
-    const query = 'SELECT ID, Nome, Email, Papel FROM usuarios WHERE Email = ? AND Senha = ?';
+    const query = 'SELECT usuarios.ID, usuarios.Nome, usuarios.Email, usuarios.Papel, relacionamentomentoria.ID AS relacionamentoID FROM usuarios LEFT JOIN relacionamentomentoria ON usuarios.ID = relacionamentomentoria.MentoradoID OR usuarios.ID = relacionamentomentoria.MentorID WHERE usuarios.Email = ? AND usuarios.Senha = ? ';
 
     try {
         // Usando uma Promise para lidar com o resultado
@@ -26,7 +26,7 @@ async function getCadastrarUsuarioModal(req) {
     const senha = req.params.senha
     const nome = req.params.nome
     const papel = 'Inscrito'
-    
+
     const query = 'INSERT INTO usuarios (email, senha, nome, papel) VALUES (?, ?, ?, ?)';
 
     try {
