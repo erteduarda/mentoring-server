@@ -1,4 +1,4 @@
-const { postAgendarModal, getAgendaModal } = require("../model/agendarModal")
+const { postAgendarModal, getAgendaModal } = require("../modal/agendarModal")
 
 async function postAgendar(req, res) {
     try {

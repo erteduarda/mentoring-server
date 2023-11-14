@@ -1,4 +1,4 @@
-const { postMateriaisModal, getMateriaisModal } = require("../model/materiaisModal")
+const { postMateriaisModal, getMateriaisModal } = require("../modal/materiaisModal")
 
 async function postMateriais(req, res) {
     try {

@@ -1,4 +1,4 @@
-const { postPoliticaModal, getPoliticaModal } = require("../model/politicaModal")
+const { postPoliticaModal, getPoliticaModal } = require("../modal/politicaModal")
 
 async function postPolitica(req, res) {
     try {

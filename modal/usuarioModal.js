@@ -1,10 +1,10 @@
 const db = require('./db')
 
-async function getUsuarioModel() {
+async function getUsuarioModal() {
     return await db.exec("SELECT * FROM usuarios")
 }
 
-async function getLogarUsuarioModel(req) {
+async function getLogarUsuarioModal(req) {
     const email = req.params.email
     const senha = req.params.senha
 
@@ -41,7 +41,7 @@ async function getCadastrarUsuarioModal(req) {
 }
 
 module.exports = {
-    getUsuarioModel,
-    getLogarUsuarioModel,
+    getUsuarioModal,
+    getLogarUsuarioModal,
     getCadastrarUsuarioModal
 }

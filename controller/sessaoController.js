@@ -1,4 +1,4 @@
-const { postSalvarSessaoModal, postSalvarRelatoMentoradoService, postSalvarRelatoMentorService } = require("../model/sessaoModal")
+const { postSalvarSessaoModal, postSalvarRelatoMentoradoService, postSalvarRelatoMentorService } = require("../modal/sessaoModal")
 
 async function postSalvarSessao(req, res) {
     try {

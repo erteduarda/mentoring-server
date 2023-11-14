@@ -1,4 +1,4 @@
-const { postMensagemModal, getMensagemModal } = require("../model/mensagemModal")
+const { postMensagemModal, getMensagemModal } = require("../modal/mensagemModal")
 
 async function postMensagem(req, res) {
     try {

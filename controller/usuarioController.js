@@ -1,8 +1,8 @@
-const { getUsuarioModel, getLogarUsuarioModel, getCadastrarUsuarioModal } = require("../model/usuarioModel")
+const { getUsuarioModal, getLogarUsuarioModal, getCadastrarUsuarioModal } = require("../modal/usuarioModal")
 
 async function getUsuario(req, res) {
     try {
-        const usuario = await getUsuarioModel(req)
+        const usuario = await getUsuarioModal(req)
         res.send(usuario)
     } catch (error) {
         res.status(500)
@@ -12,7 +12,7 @@ async function getUsuario(req, res) {
 
 async function getLogarUsuario(req, res) {
     try {
-        const usuario = await getLogarUsuarioModel(req)
+        const usuario = await getLogarUsuarioModal(req)
         res.send(usuario)
     } catch (error) {
         res.status(500)

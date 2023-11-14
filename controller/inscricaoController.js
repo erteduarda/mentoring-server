@@ -1,4 +1,4 @@
-const { postInscricaoModal, getInscricaoModal, postSalvarRelacaoModal, postAprovacaoModal, getAprovadosModal, getAprovarModal } = require("../model/inscricaoModal")
+const { postInscricaoModal, getInscricaoModal, postSalvarRelacaoModal, postAprovacaoModal, getAprovadosModal, getAprovarModal } = require("../modal/inscricaoModal")
 
 async function postInscricao(req, res) {
     try {

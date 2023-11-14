@@ -1,4 +1,4 @@
-const { getRelatorioModal } = require("../model/relatorioModal")
+const { getRelatorioModal } = require("../modal/relatorioModal")
 
 async function getRelatorio(req, res) {
     try {
