@@ -1,4 +1,4 @@
-const { postSalvarSessaoModal, postSalvarRelatoMentoradoService, postSalvarRelatoMentorService } = require("../modal/sessaoModal")
+const { postSalvarSessaoModal, postSalvarRelatoMentoradoService, postSalvarRelatoMentorService, postImagemService } = require("../modal/sessaoModal")
 
 async function postSalvarSessao(req, res) {
     try {
@@ -30,8 +30,19 @@ async function postSalvarRelatoMentor(req, res) {
     }
 }
 
+async function postImagem(req, res) {
+    try {
+        const response = await postImagemService(req)
+        res.send(response)
+    } catch (error) {
+        res.status(500)
+        res.send(error.message)
+    }
+}
+
 module.exports = {
     postSalvarSessao,
     postSalvarRelatoMentorado,
-    postSalvarRelatoMentor
+    postSalvarRelatoMentor,
+    postImagem
 }

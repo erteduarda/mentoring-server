@@ -51,9 +51,27 @@ async function postSalvarRelatoMentorService(req) {
     }
 }
 
+async function postImagemService(req) {
+    const sessao = req.body
+    // return sessoes
+    const query = "UPDATE sessoesmentoria SET Img = ? WHERE RelacionamentoID = ? AND NumeroSessao = ?";
+
+    try {
+
+        const result = await db.exec(query, [sessao.imagem, sessao.id, sessao.sessao]);
+        console.log('Resultado da inserção:', result);
+
+        return { success: true, message: 'Inserções bem-sucedidas' };
+    } catch (error) {
+        console.error('Erro ao executar as inserções:', error);
+        throw error;
+    }
+}
+
 
 module.exports = {
     postSalvarSessaoModal,
     postSalvarRelatoMentoradoService,
-    postSalvarRelatoMentorService
+    postSalvarRelatoMentorService,
+    postImagemService
 }
